@@ -33,7 +33,10 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - "./docker/redis-data:/data"
+      - "./docker/redis-data:/data:rw"
+      - "./docker/redis-data/redis.conf:/usr/local/etc/redis/redis.conf"
+      - "./docker/redis-data/logs:/logs"
+    #restart: always
 
   mysql:
     image: mysql:8
