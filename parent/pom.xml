@@ -78,6 +78,20 @@
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
+					<!-- 添加jar文件的clssifier，以及输出地址 -->
+					<executions>
+						<execution>
+							<id>repackage</id>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+							<configuration>
+								<classifier>exec</classifier>
+								<outputDirectory>../../deployment-test/jars/</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+
 				</plugin>
 			</plugins>
 		</pluginManagement>
