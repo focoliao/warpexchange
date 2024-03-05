@@ -8,7 +8,8 @@ services:
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
     volumes:
-      - "./docker/zookeeper-data:/bitnami"
+      - "./docker/zookeeper-data/data:/data:rw"
+      - "./docker/zookeeper-data/logs:/logs"
 
   kafka:
     image: bitnami/kafka:3.0
@@ -25,7 +26,8 @@ services:
       - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
       - ALLOW_PLAINTEXT_LISTENER=yes
     volumes:
-      - "./docker/kafka-data:/bitnami"
+      - "./docker/kafka-data/data:/data:rw"
+      - "./docker/kafka-data/logs:/logs"
 
   redis:
     image: redis:6.2
